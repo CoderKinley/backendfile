@@ -37,6 +37,7 @@ const server = http.createServer((req,res)=>{
     }
 
     else{
+        res.writeHead(404, {"content-type":"text/html"});
         res.end("404 erro");
     }
 
