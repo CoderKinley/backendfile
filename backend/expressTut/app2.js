@@ -62,6 +62,19 @@ app.get("/api/v1/kinley/query",(req,res)=>{
     res.status(200).json(sortedProducts);
 });
 
+// middle ware tutorial, the next is used inorder to either terminate, access the next middleware function or call the next itself to not ?
+// not have problem in the browsing time.
+app.get("/phurpa", (req,res)=>{
+    res.send("Phurpa");
+});
+
+app.get("Jigme Dolma", (req,res)=>{
+    res.send("Jigme")
+});
+
 app.listen(5000, ()=>{
     console.log("conntected...port 5000");
 });
+
+// middle ware is every where in the express and it is heaer and soul of the express js
+// req => middlewhere => response
