@@ -24,3 +24,5 @@ app.get("/api/products/1",(req,res)=>{
 app.listen(5000, ()=>{
     console.log("conntected...port 5000");
 });
+
+console.log("hello world");
