@@ -7,6 +7,7 @@ app.get("/", (req,res)=>{
 });
 // thisis it
 // this is to get all the product directly
+
 app.get("/api/products",(req,res)=>{
      const newProducts = products.map(product =>{
         const {id,name,image} = product;
@@ -24,12 +25,25 @@ app.get("/api/products",(req,res)=>{
 // this code is using the route holder that is /:
 app.get("/api/products/:productID", (req, res)=>{
     console.log(req.params);
+    console.log(req.query);
     const {productID} = req.params;
     const requireProduct = products.find(val => val.id === Number(productID));
     if(!requireProduct){
         res.status(404).send("End Of The Page serach...");
     }
     res.json(requireProduct);
+});
+//seeing the params function again
+// /api/v1/name:username/id:userid
+app.get("/api/v1/name/:username/id/:userid",(req,res)=>{
+    console.log(req.params);
+    res.send("hello from the other side");
+});
+
+// setting up the query or using the ? and alll
+app.get("/api/v1/query", (req,res)=>{
+    console.log(req.query);
+    res.send("hello world");
 });
 
 app.listen(5000, ()=>{
