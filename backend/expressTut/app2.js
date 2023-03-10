@@ -55,6 +55,10 @@ app.get("/api/v1/kinley/query",(req,res)=>{
     if(limit){
         sortedProducts = sortedProducts.slice(0,Number(limit));
     }
+    //if ther is not product found
+    if(sortedProducts.length <1){
+        return res.status(200).json({success:true, data:[]});
+    }
     res.status(200).json(sortedProducts);
 });
 
