@@ -46,6 +46,18 @@ app.get("/api/v1/query", (req,res)=>{
     res.send("hello world");
 });
 
+app.get("/api/v1/kinley/query",(req,res)=>{
+    const {search, limit} = req.query;
+    sortedProducts = [...products];
+    if(search){
+        sortedProducts = sortedProducts.filter((product)=>product.name.startsWith(search));
+    }
+    if(limit){
+        sortedProducts = sortedProducts.slice(0,Number(limit));
+    }
+    res.status(200).json(sortedProducts);
+});
+
 app.listen(5000, ()=>{
     console.log("conntected...port 5000");
 });
