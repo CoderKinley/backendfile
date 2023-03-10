@@ -61,5 +61,3 @@ app.get("/api/v1/kinley/query",(req,res)=>{
 app.listen(5000, ()=>{
     console.log("conntected...port 5000");
 });
-
-console.log("hello world");
