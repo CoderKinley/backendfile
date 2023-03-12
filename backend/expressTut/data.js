@@ -36,7 +36,7 @@ const products = [
     { id: 1, name: 'kinley' },
     { id: 2, name: 'Dolma' },
     { id: 3, name: 'Jigme' },
-    { id: 4, name: 'Gushion' },
+    { id: 4, name: 'Phurpa' },
     { id: 5, name: 'Franco' },
   ]
   module.exports = { products, people }
