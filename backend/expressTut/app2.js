@@ -1,7 +1,15 @@
 const express = require("express");
 const app = express();
 const {products} = require("./data");
+const logger = require("./logger");
 
+
+// this will add the logger to all the routes.
+app.use(logger);
+// this can be used to apply to the path after the first argument
+// app.use("/api", logger);
+// to use multiple middleware function
+// app.use([logger,method])
 app.get("/", (req,res)=>{
     res.send("<h1>Home Page</h1><a href='/api/products'>Products</a>");
 });
@@ -35,6 +43,7 @@ app.get("/api/products/:productID", (req, res)=>{
 });
 //seeing the params function again
 // /api/v1/name:username/id:userid
+
 app.get("/api/v1/name/:username/id/:userid",(req,res)=>{
     console.log(req.params);
     res.send("hello from the other side");
@@ -64,12 +73,13 @@ app.get("/api/v1/kinley/query",(req,res)=>{
 
 // middle ware tutorial, the next is used inorder to either terminate, access the next middleware function or call the next itself to not ?
 // not have problem in the browsing time.
-app.get("/phurpa", (req,res)=>{
-    res.send("Phurpa");
+
+app.get("/phurpa",logger, (req,res)=>{
+    res.send("<h1>Phurpa</h1>");
 });
 
-app.get("Jigme Dolma", (req,res)=>{
-    res.send("Jigme")
+app.get("/jigme",logger ,(req,res)=>{
+    res.send("Jigme");
 });
 
 app.listen(5000, ()=>{
