@@ -2,6 +2,7 @@ const express = require("express");
 const {people} = require("./data");
 const app = express();
 
+// below code that i use are all basically the middle ware
 //load my html file here
 app.use(express.static('./methods-public'));
 
