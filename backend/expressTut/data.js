@@ -38,5 +38,5 @@ const products = [
     { id: 3, name: 'Jigme' },
     { id: 4, name: 'Phurpa' },
     { id: 5, name: 'Franco' },
-  ]
+  ];
   module.exports = { products, people }
